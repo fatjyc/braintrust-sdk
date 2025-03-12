@@ -54,7 +54,8 @@ describe("gitutil", () => {
         checkIsRepo: vi.fn().mockResolvedValue(true),
         diffSummary: vi.fn().mockResolvedValue({ files: [] }),
         revparse: vi.fn().mockResolvedValue("abc123"),
-        raw: vi.fn()
+        raw: vi
+          .fn()
           .mockResolvedValueOnce("commit message")
           .mockResolvedValueOnce("2025-03-14")
           .mockResolvedValueOnce("Test Author")
@@ -122,10 +123,7 @@ describe("gitutil", () => {
         branchLocal: vi.fn().mockResolvedValue({ all: ["main"] }),
         raw: vi.fn().mockResolvedValue("abc123"),
         log: vi.fn().mockResolvedValue({
-          all: [
-            { hash: "commit1" },
-            { hash: "commit2" },
-          ],
+          all: [{ hash: "commit1" }, { hash: "commit2" }],
         }),
       };
 
